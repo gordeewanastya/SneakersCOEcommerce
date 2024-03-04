@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/SneakersCOProject/SneakersCOWebParent/SneakersCOBackEnd/SneakersCOBackEnd.iml" filepath="$PROJECT_DIR$/SneakersCOProject/SneakersCOWebParent/SneakersCOBackEnd/SneakersCOBackEnd.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SneakersCOProject/SneakersCOCommon/SneakersCOCommon.iml" filepath="$PROJECT_DIR$/SneakersCOProject/SneakersCOCommon/SneakersCOCommon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/SneakersCOEcommerce.iml" filepath="$PROJECT_DIR$/.idea/SneakersCOEcommerce.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SneakersCOProject/SneakersCOWebParent/SneakersCOFrontEnd/SneakersCOFrontEnd.iml" filepath="$PROJECT_DIR$/SneakersCOProject/SneakersCOWebParent/SneakersCOFrontEnd/SneakersCOFrontEnd.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SneakersCOProject/SneakersCOProject.iml" filepath="$PROJECT_DIR$/SneakersCOProject/SneakersCOProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SneakersCOProject/SneakersCOWebParent/SneakersCOWebParent.iml" filepath="$PROJECT_DIR$/SneakersCOProject/SneakersCOWebParent/SneakersCOWebParent.iml" />
+    </modules>
+  </component>
+</project>
