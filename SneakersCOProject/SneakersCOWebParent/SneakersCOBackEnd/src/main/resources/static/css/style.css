@@ -44,6 +44,7 @@ body{
 
 section{
     padding:2rem 7%;
+    /*margin-top: 5%;*/
 }
 
 .heading{
@@ -155,24 +156,28 @@ section{
     /* Adjust the font size as needed */
 }
 
-section{
-    padding:2rem 7%;
-}
-
 .home{
     min-height: 100vh;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
     background-size: cover;
     background: white fixed center;
 }
 
 .home .content{
-    max-width: 60rem;
+    /*max-width: 60rem;*/
+    min-width: 100%;
 }
 
 .home .content h2{
-    font-size: 6rem;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: black;
+}
+
+.home .content {
+    font-size: 1.5rem;
     text-transform: uppercase;
     color: black;
 }
