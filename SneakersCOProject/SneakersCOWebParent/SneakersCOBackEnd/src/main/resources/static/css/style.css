@@ -14,7 +14,7 @@
     box-sizing: border-box;
     outline: none; border:none;
     text-decoration: none;
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
     transition: .2s linear;
 }
 
@@ -178,7 +178,7 @@ section{
 
 .home .content {
     font-size: 1.5rem;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     color: black;
 }
 
