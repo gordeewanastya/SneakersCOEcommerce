@@ -190,6 +190,11 @@ section{
 /*    color:#eee;*/
 /*}*/
 
+.new-user-form{
+    max-width: 700px;
+    margin: 0 auto;
+}
+
 .footer{
     background:var(--bg);
     text-align: center;
