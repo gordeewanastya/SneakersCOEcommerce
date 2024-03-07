@@ -8,6 +8,11 @@
     --border:.1rem solid rgba(255,255,255,.3);
 }
 
+*.icon-gray {color: gray}
+*.icon-green {color: green}
+*.icon-silver {color: silver}
+*.icon-red {color: red}
+
 *{
     font-family: 'Montserrat', sans-serif;
     margin:0; padding:0;
