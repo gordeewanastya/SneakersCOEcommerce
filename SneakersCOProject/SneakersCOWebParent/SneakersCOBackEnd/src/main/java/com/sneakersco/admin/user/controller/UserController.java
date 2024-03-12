@@ -64,7 +64,6 @@ public class UserController {
             model.addAttribute("listRoles", listRoles);
 
             return "user_form";
-
         } catch (UserNotFoundException e) {
             redirectAttributes.addFlashAttribute("message", e.getMessage());
 
@@ -72,4 +71,22 @@ public class UserController {
         }
 
     }
+
+    @GetMapping("/users/delete/{id}")
+    public String deleteUser(@PathVariable(name = "id") Integer id,
+                           Model model,
+                           RedirectAttributes redirectAttributes){
+        try {
+            userService.delete(id);
+            redirectAttributes.addFlashAttribute("message", "The user with ID " + id + " has been deleted successfully");
+            return "redirect:/users";
+
+        } catch (UserNotFoundException e) {
+            redirectAttributes.addFlashAttribute("message", e.getMessage());
+            return "redirect:/users";
+        }
+    }
 }
+
+
+

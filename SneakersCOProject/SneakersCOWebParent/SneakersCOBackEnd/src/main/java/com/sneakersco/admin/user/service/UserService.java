@@ -7,9 +7,11 @@ import com.sneakersco.common.entity.User;
 import java.util.List;
 
 public interface UserService {
-    public List<User> listAll();
-    public List<Role> listRoles();
-    public void save(User user);
-    public boolean isEmailUnique(String email, Integer id);
-    User get(Integer id) throws UserNotFoundException;
+     List<User> listAll();
+     List<Role> listRoles();
+     void save(User user);
+     boolean isEmailUnique(String email, Integer id);
+     User get(Integer id) throws UserNotFoundException;
+
+     void delete(Integer id) throws UserNotFoundException;
 }
