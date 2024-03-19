@@ -79,7 +79,8 @@
             <h2 class="heading">Manage Users | [[${pageTitle}]]</h2>
 
             <form th:action="@{/users/save}" method="post" class="new-user-form" th:object="${user}"
-                  onsubmit="return checkEmailUnique(this);">
+                  enctype="multipart/form-data"
+                  onsubmit="return checkEmailUnique(this);" >
                 <input type="hidden" th:field="*{id}">
                 <div class="border border-secondary rounded p-3">
                     <div class="form-group row">
@@ -136,6 +137,17 @@
                         </div>
                     </div>
 
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Photos:</label>
+                        <div class="col-sm-8 d-flex justify-content-between align-items-center">
+                            <input type="hidden" th:field="*{photos}">
+                            <input type="file" id="fileImage" name="image" accept="image/png, image/jpeg"
+                                   class="mb-2"/>
+                            <img id="thumbnail" alt="Photos preview" th:src="@{${user.photosImagePath}}"
+                                 class="img-fluid"/>
+                        </div>
+                    </div>
+
                     <div class="text-center">
                         <input type="submit" value="Save" class="btn_toggle m-3">
                         <input type="button" value="Cancel" class="btn_toggle" id="buttonCancel">
@@ -175,7 +187,29 @@
             $("#buttonCancel").on("click", function () {
                 window.location = "[[@{/users}]]";
             });
+
+            $("#fileImage").change(function (){
+                fileSize = this.files[0].size;
+
+                if (fileSize > 1048576) { //if is > than 1 MB
+                    this.setCustomValidity("You must choose an image less than 1MB!");
+                    this.reportValidity(); //prevent the form from being submitted
+                } else {
+                    this.setCustomValidity("");
+                    showImageThumbnail(this);
+                }
+            });
         });
+
+        function showImageThumbnail(fileInput){
+            var file = fileInput.files[0];
+            var reader = new FileReader();
+            reader.onload = function (e){
+                $("#thumbnail").attr("src", e.target.result);
+            };
+
+            reader.readAsDataURL(file);
+        }
 
         function checkEmailUnique(form){
             url = "[[@{/users/check_email}]]";

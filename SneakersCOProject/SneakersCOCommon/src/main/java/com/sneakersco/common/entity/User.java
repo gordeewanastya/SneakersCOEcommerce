@@ -9,12 +9,14 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
+import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -71,5 +73,12 @@ public class User {
                 ", lastName='" + lastName + '\'' +
                 ", roles=" + roles +
                 '}';
+    }
+
+    @Transient
+    public String getPhotosImagePath(){
+        if ( id == null || photos == null ) return "/images/default-user.png";
+
+        return "/user-photos/" + this.id + "/" + this.photos;
     }
 }

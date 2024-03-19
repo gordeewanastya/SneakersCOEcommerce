@@ -11,5 +11,4 @@ public class SneakersCoBackEndApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SneakersCoBackEndApplication.class, args);
 	}
-
 }
