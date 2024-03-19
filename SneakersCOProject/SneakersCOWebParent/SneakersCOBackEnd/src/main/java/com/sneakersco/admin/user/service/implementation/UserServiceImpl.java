@@ -7,6 +7,9 @@ import com.sneakersco.admin.user.service.UserService;
 import com.sneakersco.common.entity.Role;
 import com.sneakersco.common.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,6 +20,8 @@ import java.util.NoSuchElementException;
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {
+
+    public static final int USERS_PER_PAGE = 4;
 
     @Autowired
     private UserRepository userRepo;
@@ -97,6 +102,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public void updateUserEnabledStatus(Integer id, boolean enabled) {
         userRepo.updateEnabledStatus(id,enabled);
+    }
+
+    @Override
+    public Page<User> listByPage(int pageNum) {
+        Pageable pageable = PageRequest.of(pageNum - 1,USERS_PER_PAGE);
+
+        return userRepo.findAll(pageable);
     }
 
     private void encodePassword(User user) {

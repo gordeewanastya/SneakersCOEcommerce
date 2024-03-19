@@ -7,6 +7,7 @@ import com.sneakersco.admin.util.FileUploadUtil;
 import com.sneakersco.common.entity.Role;
 import com.sneakersco.common.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -17,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -28,9 +28,30 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/users")
-    public String listAll(Model model){
-        List<User> listUsers = userService.listAll();
+    public String listFirstPage(Model model){
+//        List<User> listUsers = userService.listAll();
+//        model.addAttribute("listUsers", listUsers);
+//        return "users";
+        return listByPage(1,model);
+    }
+
+    @GetMapping("/users/page/{pageNum}")
+    public String listByPage(@PathVariable("pageNum") int pageNum, Model model){
+        Page<User> pageUser = userService.listByPage(pageNum);
+        List<User> listUsers = pageUser.getContent();
+
+        long startCount = (pageNum - 1) * UserServiceImpl.USERS_PER_PAGE + 1;
+        long endCount = startCount + UserServiceImpl.USERS_PER_PAGE - 1;
+        if (endCount > pageUser.getTotalElements()){
+            endCount = pageUser.getTotalElements();
+        }
+
         model.addAttribute("listUsers", listUsers);
+        model.addAttribute("currentPage", pageNum);
+        model.addAttribute("totalPages", pageUser.getTotalPages());
+        model.addAttribute("startCount", startCount);
+        model.addAttribute("endCount", endCount);
+        model.addAttribute("totalItems", pageUser.getTotalElements());
         return "users";
     }
 

@@ -65,6 +65,14 @@ section{
     text-transform: uppercase;
 }
 
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
 .btn{
     margin-top: 1rem;
     display: inline-block;
