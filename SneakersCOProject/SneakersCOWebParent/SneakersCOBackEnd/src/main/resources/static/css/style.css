@@ -73,7 +73,7 @@ a:hover{
     text-decoration: none;
 }
 
-.btn{
+.btn_custom{
     margin-top: 1rem;
     display: inline-block;
     padding:.9rem 3rem;
@@ -84,7 +84,7 @@ a:hover{
 }
 
 
-.btn:hover{
+.btn_custom:hover{
     letter-spacing: .2rem;
 }
 

@@ -193,7 +193,7 @@
 
                 if (fileSize > 1048576) { //if is > than 1 MB
                     this.setCustomValidity("You must choose an image less than 1MB!");
-                    this.reportValidity(); //prevent the form from being submitted
+                    this.reportValidity(); //prevent the form from being submitted and show the error message
                 } else {
                     this.setCustomValidity("");
                     showImageThumbnail(this);
