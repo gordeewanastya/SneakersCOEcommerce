@@ -16,7 +16,6 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -80,5 +79,10 @@ public class User {
         if ( id == null || photos == null ) return "/images/default-user.png";
 
         return "/user-photos/" + this.id + "/" + this.photos;
+    }
+
+    @Transient
+    public String getFullName(){
+        return firstName + " " + lastName;
     }
 }
