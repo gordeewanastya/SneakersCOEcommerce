@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+    <title>Login - SneakersCO Admin</title>
+
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+<body>
+<div class="container">
+    <h2>SneakersCO Control Panel</h2>
+    <div class="container" id="container">
+        <div class="form-container sign-in-container">
+            <form th:action="@{/login}" method="post">
+                <h1>Sign in</h1>
+
+                <div th:if="${param.error}">
+                    <p style="color: darkred">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</p>
+                </div>
+
+                <div class="social-container">
+                    <!-- <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a> -->
+                </div>
+                <!-- <span>or use your account</span> -->
+
+                <input type="email" name="email" placeholder="E-mail" required/>
+                <input type="password" name="password" placeholder="Password" required/>
+                <a href="#">Remember me</a>
+                <button type="submit">Sign In</button>
+
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and get access to the control panel</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
