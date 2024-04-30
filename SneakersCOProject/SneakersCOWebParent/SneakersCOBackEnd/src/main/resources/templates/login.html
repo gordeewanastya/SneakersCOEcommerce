@@ -18,6 +18,9 @@
                 <div th:if="${param.error}">
                     <p style="color: darkred">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</p>
                 </div>
+                <div th:if="${param.logout}">
+                    <p style="color: darkorange">You have been logged out.</p>
+                </div>
 
                 <div class="social-container">
                     <!-- <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -28,7 +31,10 @@
 
                 <input type="email" name="email" placeholder="E-mail" required/>
                 <input type="password" name="password" placeholder="Password" required/>
-                <a href="#">Remember me</a>
+<!--                <a href="#">Remember me</a>-->
+                <p>
+                    <input type="checkbox" name="remember-me" /> Remember me
+                </p>
                 <button type="submit">Sign In</button>
 
             </form>
