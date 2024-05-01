@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head th:replace="fragments :: page_head('Error - SneakersCO Admin')">
+<body>
+  <div th:replace="navigation :: header_menu"></div>
+
+  <section class="home">
+    <div class="content">
+      <h2 class="heading"></h2>
+      <h2 class="heading"></h2>
+      <h2 class="heading"></h2>
+      <h2 class="heading">SneakersCO Control Panel</h2>
+      <div class="m-3">
+        <h2>Sorry, the server has encountered an error while processing your request</h2>
+      </div>
+    </div>
+  </section>
+
+  <section th:replace="fragments :: footer"></section>
+</body>
+</html>
