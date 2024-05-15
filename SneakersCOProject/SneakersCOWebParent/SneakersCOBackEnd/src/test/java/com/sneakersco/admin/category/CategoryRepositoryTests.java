@@ -1,6 +1,6 @@
 package com.sneakersco.admin.category;
 
-import com.sneakersco.admin.user.repository.CategoryRepository;
+import com.sneakersco.admin.category.repository.CategoryRepository;
 import com.sneakersco.common.entity.Category;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

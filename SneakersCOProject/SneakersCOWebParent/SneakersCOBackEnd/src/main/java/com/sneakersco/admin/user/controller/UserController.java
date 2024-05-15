@@ -1,4 +1,4 @@
-package com.sneakersco.admin.user.controller.user;
+package com.sneakersco.admin.user.controller;
 
 import com.sneakersco.admin.user.exception.UserNotFoundException;
 import com.sneakersco.admin.user.service.UserService;
