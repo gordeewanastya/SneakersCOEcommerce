@@ -53,6 +53,7 @@ public class CategoryController {
 
             Category savedCategory = service.save(category);
             String uploadDir = "../category-images/" + savedCategory.getId();
+//            String uploadDir = "category-images/" + savedCategory.getId();
 
             FileUploadUtil.cleanDir(uploadDir);
             FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
