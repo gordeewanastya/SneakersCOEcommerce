@@ -1,5 +1,6 @@
 package com.sneakersco.common.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -89,7 +90,7 @@ public class Brand{
 
     @Transient
     public String getLogoPath() {
-        if (this.id == null) return "/images/image-thumbnail.png";
+        if (this.id == null || this.logo == null) return "/images/image-thumbnail.jpeg";
 
         return "/brand-logos/" + this.id + "/" + this.logo;
     }

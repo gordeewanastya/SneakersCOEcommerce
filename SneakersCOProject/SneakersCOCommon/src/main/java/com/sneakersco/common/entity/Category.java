@@ -119,7 +119,7 @@ public class Category {
 
     @Transient
     public String getImagePath() {
-        if (this.id == null) return "/images/image-thumbnail.jpeg";
+        if (this.id == null || this.image == null) return "/images/image-thumbnail.jpeg";
 
         return "/category-images/" + this.id + "/" + this.image;
     }
