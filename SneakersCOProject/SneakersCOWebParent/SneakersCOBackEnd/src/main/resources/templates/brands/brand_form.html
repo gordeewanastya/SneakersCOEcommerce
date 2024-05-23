@@ -43,12 +43,11 @@
           <div class="form-group row">
             <label class="col-sm-4 col-form-label">Select one or more categories:</label>
             <div class="col-sm-8">
-              <select class="form-control" th:field="*{categories}" multiple required
+              <select class="form-control" id="categories" th:field="*{categories}" multiple required
                       style="resize: vertical; height: 200px">
                 <th:block th:each="cat : ${listCategories}">
                   <option th:value="${cat.id}">[[${cat.name}]]</option>
                 </th:block>
-
               </select>
             </div>
           </div>
@@ -76,25 +75,25 @@
 </div>
 <script type="text/javascript">
   moduleURL = "[[@{/brands}]]";
-  //
-  // $(document).ready(function() {
-  //   dropdownCategories = $("#categories");
-  //   divChosenCategories = $("#chosenCategories");
-  //
-  //   dropdownCategories.change(function() {
-  //     divChosenCategories.empty();
-  //     showChosenCategories();
-  //   });
-  // });
-  //
-  // function showChosenCategories() {
-  //   dropdownCategories.children("option:selected").each(function() {
-  //     selectedCategory = $(this);
-  //     catId = selectedCategory.val();
-  //     catName = selectedCategory.text().replace(/-/g, "");
-  //
-  //     divChosenCategories.append("<span class='badge badge-secondary m-1'>" + catName + "</span>");
-  //   });
+
+  $(document).ready(function() {
+    dropdownCategories = $("#categories");
+    divChosenCategories = $("#chosenCategories");
+
+    dropdownCategories.change(function() {
+      divChosenCategories.empty();
+      showChosenCategories();
+    });
+  });
+
+  function showChosenCategories() {
+    dropdownCategories.children("option:selected").each(function() {
+      selectedCategory = $(this);
+      catId = selectedCategory.val();
+      catName = selectedCategory.text().replace(/-/g, "");
+
+      divChosenCategories.append("<span class='badge badge-secondary m-1'>" + catName + "</span>");
+    });
 
   }
 </script>
