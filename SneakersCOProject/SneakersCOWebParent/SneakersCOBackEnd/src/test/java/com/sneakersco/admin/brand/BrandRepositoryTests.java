@@ -9,6 +9,8 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 
+import java.util.Optional;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
@@ -31,6 +33,14 @@ public class BrandRepositoryTests {
     }
 
     @Test
+    public void testFindAll(){
+        Iterable<Brand> brands = repo.findAll();
+        brands.forEach(System.out::println);
+
+        assertThat(brands).isNotEmpty();
+    }
+
+    @Test
     public void testCreateBrand2() {
         Category boots = new Category(4);
         Brand drMartens = new Brand("Dr.Martens");
@@ -39,7 +49,16 @@ public class BrandRepositoryTests {
         Brand savedBrand = repo.save(drMartens);
         assertThat(savedBrand).isNotNull();
         assertThat(savedBrand.getId()).isGreaterThan(0);
+    }
 
+    @Test
+    public void testSetCategoriesToBrand(){
+        Brand brand = repo.findById(2).get();
+        Category trainers = new Category(4);
+        brand.getCategories().add(trainers);
+
+        Brand updatedBrand = repo.save(brand);
+        assertThat(updatedBrand).isNotNull();
     }
 
 }
